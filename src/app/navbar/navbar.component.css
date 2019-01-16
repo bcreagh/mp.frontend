@@ -1,0 +1,15 @@
+a.aNoStyle:link {
+    text-decoration: inherit;
+    color: inherit;
+    cursor: auto;
+}
+
+a.aNoStyle:hover {
+    text-decoration: inherit;
+    color: #9d9d9d !important;
+    cursor: auto;
+}
+
+.navbar {
+    border-radius: 0px;
+}
