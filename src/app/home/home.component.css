@@ -1,0 +1,26 @@
+.herobox {
+    padding-top: 2em;
+    background-color: #a4eb6f;
+    min-height: 25em;
+    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+}
+
+.heading-lg {
+    font-size: 6em;
+    font-weight: 900;
+}
+
+.heading-sm {
+    font-size: 3em;
+    font-weight: 900;
+}
+
+.home-content {
+    padding-top: 1em;
+}
+
+.content-section {
+    padding: 1em;
+    font-size: 1.5em;
+    text-align: center;
+}
