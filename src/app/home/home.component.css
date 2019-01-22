@@ -24,3 +24,17 @@
     font-size: 1.5em;
     text-align: center;
 }
+
+.btn[hidden] {
+    display: none !important;
+}
+
+.topic-select {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+.btn-go-to-topic {
+    min-width: 4em;
+    font-size: 1em;
+}

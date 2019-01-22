@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ConfigService } from 'src/_services/config.service';
+import { TopicService } from 'src/_services/topic.service';
+import { Topic } from 'src/_model/topic';
 
 @Component({
   selector: 'app-home',
@@ -8,9 +9,24 @@ import { ConfigService } from 'src/_services/config.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  topics: Topic[] = [];
+  selectedTopic: Topic;
+
+  constructor(private topicService: TopicService) { }
 
   ngOnInit() {
+    this.getTopics();
   }
 
+  getTopics() {
+    this.topicService.getTopics().subscribe(
+      (topics) => {
+        this.topics = topics;
+        console.log(topics);
+      },
+      (error) => {
+          console.error(`There was a problem loading the topics: ${error}`);
+      }
+    );
+  }
 }

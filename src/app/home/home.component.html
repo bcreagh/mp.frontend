@@ -34,17 +34,12 @@
       <div class="row">
         <div class="col-md-5"></div>
         <div class="col-md-2">
-          <select class="form-control">
-            <option>
-              java
-            </option>
-            <option>
-              c
-            </option>
-            <option>
-              c#
+          <select class="form-control topic-select" [(ngModel)]="selectedTopic">
+            <option *ngFor="let topic of topics" [ngValue]="topic">
+              {{topic.name}}
             </option>
           </select>
+          <button class="btn btn-success btn-go-to-topic" type="button" [hidden]="!selectedTopic">Go</button>
         </div>
         <div class="col-md-5"></div>
       </div>
