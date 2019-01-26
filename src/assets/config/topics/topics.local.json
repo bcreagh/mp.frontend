@@ -1,6 +1,7 @@
 [
     {
         "name": "Proof of Concept",
-        "url": "http://localhost:3000/poc"
+        "base-url": "http://localhost:3000/",
+        "path": "poc"
     }
 ]

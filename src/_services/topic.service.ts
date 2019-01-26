@@ -17,9 +17,13 @@ export class TopicService {
     }
 
     getTopics() {
-        if (this.topics) {
-            return of(this.topics);
+        if (!this.topics) {
+            return this.retrieveTopics();
         }
+        return of(this.topics);
+    }
+
+    private retrieveTopics() {
         const filename = this.getTopicsFilename();
         return this.http.get<Topic[]>(`/assets/config/topics/${filename}`).pipe(
             map(data => {
@@ -31,5 +35,17 @@ export class TopicService {
     private getTopicsFilename() {
         const envName = this.configService.getEnvironmentName();
         return `topics.${envName}.json`;
+    }
+
+    getTopic(path: string) {
+        if (!this.topics) {
+            return this.retrieveTopics().pipe(
+                map(topics => this.searchTopicsByPath(path, topics)));
+        }
+        return of(this.searchTopicsByPath(path, this.topics));
+    }
+
+    private searchTopicsByPath(path: string, topics: Topic[]) {
+        return topics.find(topic => topic.path === path);
     }
 }

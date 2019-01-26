@@ -39,7 +39,9 @@
               {{topic.name}}
             </option>
           </select>
-          <button class="btn btn-success btn-go-to-topic" type="button" [hidden]="!selectedTopic">Go</button>
+          <a routerLink="/topics/{{selectedTopic?.path}}" routerLinkActive="active">
+            <button class="btn btn-success btn-go-to-topic" type="button" [hidden]="!selectedTopic">Go</button>
+          </a>
         </div>
         <div class="col-md-5"></div>
       </div>

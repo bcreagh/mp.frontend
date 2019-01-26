@@ -11,12 +11,14 @@ import { NavbarComponent } from './navbar/navbar.component';
 
 import { ConfigService } from '../_services/config.service';
 import { TopicService } from 'src/_services/topic.service';
+import { TopicComponent } from './topic/topic.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    TopicComponent
   ],
   imports: [
     BrowserModule,
