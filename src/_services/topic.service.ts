@@ -3,9 +3,13 @@ import { HttpClient } from '@angular/common/http';
 
 import { Topic } from 'src/_model/topic';
 import { ConfigService } from './config.service';
+import { of } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class TopicService {
+    topics: Topic[];
+
     constructor(
         private http: HttpClient,
         private configService: ConfigService
@@ -13,8 +17,15 @@ export class TopicService {
     }
 
     getTopics() {
+        if (this.topics) {
+            return of(this.topics);
+        }
         const filename = this.getTopicsFilename();
-        return this.http.get<Topic[]>(`/assets/config/topics/${filename}`);
+        return this.http.get<Topic[]>(`/assets/config/topics/${filename}`).pipe(
+            map(data => {
+                this.topics = data;
+                return data;
+            }));
     }
 
     private getTopicsFilename() {
