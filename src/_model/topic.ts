@@ -1,5 +1,5 @@
 export class Topic {
     name = '';
-    url = '';
+    baseUrl = '';
     path = '';
 }

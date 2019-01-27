@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { of } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { Topic } from 'src/_model/topic';
 import { ConfigService } from './config.service';
-import { of } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Readme } from 'src/_model/readme';
 
 @Injectable()
 export class TopicService {
@@ -47,5 +48,10 @@ export class TopicService {
 
     private searchTopicsByPath(path: string, topics: Topic[]) {
         return topics.find(topic => topic.path === path);
+    }
+
+    getReadme(topic: Topic) {
+        const url = `${topic.baseUrl}${topic.path}/readme`;
+        return this.http.get<Readme>(url);
     }
 }
