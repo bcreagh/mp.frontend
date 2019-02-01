@@ -54,4 +54,9 @@ export class TopicService {
         const url = `${topic.baseUrl}${topic.path}/readme`;
         return this.http.get<Readme>(url);
     }
+
+    getActions(topic: Topic) {
+        const url = `${topic.baseUrl}${topic.path}/actions`;
+        return this.http.get<Readme>(url);
+    }
 }

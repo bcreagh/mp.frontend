@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Topic } from 'src/_model/topic';
 import { TopicService } from 'src/_services/topic.service';
 import { Readme } from 'src/_model/readme';
+import { Action } from 'src/_model/action';
+import { ActionSequence } from 'protractor';
 
 @Component({
   selector: 'app-topic',
@@ -13,12 +15,19 @@ import { Readme } from 'src/_model/readme';
 export class TopicComponent implements OnInit {
 
   topic: Topic;
+  actions: Action[];
   readmeContent = '';
 
   constructor(
     private route: ActivatedRoute,
     private topicService: TopicService
-    ) { }
+    ) {
+      let sampleAction = new Action();
+      sampleAction.name = "action";
+      sampleAction.description = "A big description";
+      this.actions = [];
+      this.actions.push(sampleAction);
+     }
 
   ngOnInit() {
     const path = this.route.snapshot.paramMap.get('path');
