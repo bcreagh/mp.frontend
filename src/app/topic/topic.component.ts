@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Topic } from 'src/_model/topic';
 import { TopicService } from 'src/_services/topic.service';
 import { Readme } from 'src/_model/readme';
 import { Action } from 'src/_model/action';
-import { ActionSequence } from 'protractor';
 
 @Component({
   selector: 'app-topic',
@@ -20,7 +19,8 @@ export class TopicComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private topicService: TopicService
+    private topicService: TopicService,
+    private router: Router
     ) {
       let sampleAction = new Action();
       sampleAction.name = "action";
@@ -50,6 +50,7 @@ export class TopicComponent implements OnInit {
 
   onTopicRetrieved() {
     this.getReadme();
+    this.getActions();
   }
 
   getReadme() {
@@ -62,5 +63,21 @@ export class TopicComponent implements OnInit {
         console.error(`There was a problem retrieving the readme: ${error}`);
       }
     );
+  }
+
+  getActions() {
+    this.topicService.getActions(this.topic)
+      .subscribe(
+        (actions) => {
+          this.actions = actions;
+        },
+        (error) => {
+          console.error(`There was a problem retrieving the actions: ${error}`);
+        }
+      );
+  }
+
+  actionClicked(action: Action) {
+    this.router.navigate([`/action/${action.route}`]);
   }
 }

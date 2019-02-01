@@ -11,7 +11,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let action of actions">
+        <tr *ngFor="let action of actions" (click)="actionClicked(action)">
           <td>{{action.name}}</td>
           <td>{{action.description}}</td>
         </tr>

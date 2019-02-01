@@ -3,11 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { TopicComponent } from './topic/topic.component';
+import { ActionComponent } from './action/action.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'topics/:path', component: TopicComponent }
+  { path: 'topics/:path', component: TopicComponent },
+  { path: 'action/:action-route', component: ActionComponent }
 ];
 
 @NgModule({
