@@ -15,6 +15,7 @@ import { ConfigService } from '../_services/config.service';
 import { TopicService } from 'src/_services/topic.service';
 import { TopicComponent } from './topic/topic.component';
 import { ActionComponent } from './action/action.component';
+import { MpMarkdownComponent } from './mp-markdown/mp-markdown.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ActionComponent } from './action/action.component';
     HomeComponent,
     NavbarComponent,
     TopicComponent,
-    ActionComponent
+    ActionComponent,
+    MpMarkdownComponent
   ],
   imports: [
     BrowserModule,
