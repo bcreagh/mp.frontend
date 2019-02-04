@@ -1,26 +1,27 @@
-.topic {
-    padding-left: 2em;
-    padding-right: 2em;
-}
-
 .topic-heading {
     text-align: center;
     padding-top: 2em;
     padding-bottom: 2em;
+    background-color: #a4eb6f;
 }
 
 .topic-heading>h1 {
     font-size: 5em;
     font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .topic-actions {
-    padding-left: 2em;
-    padding-right: 2em;
+    padding: 3em 2em 3em 2em;
 }
 
 .name-column {
-    min-width: 5em;
+    width: 30%;
+}
+
+.desc-column {
+    width: 70%;
 }
 
 tr {
@@ -28,13 +29,45 @@ tr {
 }
 
 table {
+    table-layout: fixed;
     margin-right: auto;
     margin-left: auto;
-    width: 70%;
+    margin-bottom: 0px;
+    width: 60%;
 }
 
-@media (max-width:700px){
+td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.topic-readme {
+    margin-right: auto;
+    margin-left: auto;
+    width: 75%;
+}
+
+.panel-body {
+    padding: 0em 2em 1em 2em;
+}
+
+@media (max-width:800px){
     .table {
         width: 100%;
+    }
+
+    .topic-readme {
+        margin-left: 2em;
+        margin-right: 2em;
+        width: auto;
+    }
+
+    .name-column {
+        width: 50%;
+    }
+    
+    .desc-column {
+        width: 50%;
     }
 }
