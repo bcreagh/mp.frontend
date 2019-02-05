@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { TopicService } from 'src/_services/topic.service';
+import { Topic } from 'src/_model/topic';
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -7,8 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  topics: Topic[];
+
+  constructor(private topicService: TopicService) { }
 
   ngOnInit() {
+    this.topicService.getTopics().subscribe(
+      (topics) => {
+        this.topics = topics;
+        console.log(topics);
+      },
+      (error) => {
+          console.error(`There was a problem loading the topics: ${error}`);
+      }
+    );
   }
 }
