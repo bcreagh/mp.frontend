@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
+import { TopicService } from 'src/_services/topic.service';
+import { Topic } from 'src/_model/topic';
 
 @Component({
   selector: 'app-action',
@@ -9,7 +12,8 @@ import { ActivatedRoute } from '@angular/router';
 export class ActionComponent implements OnInit {
 
   actionRoute = '';
-  
+  readmeContent = '';
+
   constructor(
     private route: ActivatedRoute
     ) { }

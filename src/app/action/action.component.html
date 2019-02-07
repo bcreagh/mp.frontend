@@ -1,3 +1,19 @@
-<p>
-  action works! {{actionRoute}}
-</p>
+<div class="action">
+  <div class="action-heading">
+    <h1>{{actionRoute}}</h1>
+  </div>
+  <div class="try-action">
+    <div class="try-text">
+      Want to test out {{actionRoute}}? Click below to give it a try!
+    </div>
+    <a routerLink="/topics/{{selectedTopic?.path}}" routerLinkActive="active">
+      <button class="btn btn-success btn-try-it" type="button">Try it</button>
+    </a>
+  </div>
+  <div class="action-readme panel panel-default">
+    <div class="panel-heading">Readme</div>
+    <div class="panel-body">
+      <app-mp-markdown [data]="readmeContent"></app-mp-markdown>
+    </div>
+  </div>
+</div>

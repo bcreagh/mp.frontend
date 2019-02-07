@@ -21,18 +21,11 @@ export class TopicComponent implements OnInit {
     private route: ActivatedRoute,
     private topicService: TopicService,
     private router: Router
-    ) {
-      let sampleAction = new Action();
-      sampleAction.name = "action";
-      sampleAction.description = "A big description";
-      this.actions = [];
-      this.actions.push(sampleAction);
-     }
+    ) { }
 
   ngOnInit() {
     const path = this.route.snapshot.paramMap.get('path');
     this.getTopic(path);
-
   }
 
   getTopic(path: string) {
@@ -78,6 +71,6 @@ export class TopicComponent implements OnInit {
   }
 
   actionClicked(action: Action) {
-    this.router.navigate([`/action/${action.route}`]);
+    this.router.navigate([`topics/${this.topic.path}/actions/${action.route}`]);
   }
 }
