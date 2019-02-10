@@ -13,6 +13,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 
 import { ConfigService } from '../_services/config.service';
 import { TopicService } from 'src/_services/topic.service';
+import { ActionService } from 'src/_services/action.service';
 import { TopicComponent } from './topic/topic.component';
 import { ActionComponent } from './action/action.component';
 import { MpMarkdownComponent } from './mp-markdown/mp-markdown.component';
@@ -35,7 +36,8 @@ import { MpMarkdownComponent } from './mp-markdown/mp-markdown.component';
   ],
   providers: [
     ConfigService,
-    TopicService
+    TopicService,
+    ActionService
   ],
   bootstrap: [AppComponent]
 })

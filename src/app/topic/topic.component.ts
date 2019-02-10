@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Topic } from 'src/_model/topic';
 import { TopicService } from 'src/_services/topic.service';
 import { Readme } from 'src/_model/readme';
-import { Action } from 'src/_model/action';
+import { ActionSummary } from 'src/_model/action-summary';
 
 @Component({
   selector: 'app-topic',
@@ -14,7 +14,7 @@ import { Action } from 'src/_model/action';
 export class TopicComponent implements OnInit {
 
   topic: Topic;
-  actions: Action[];
+  actions: ActionSummary[];
   readmeContent = '';
 
   constructor(
@@ -70,7 +70,7 @@ export class TopicComponent implements OnInit {
       );
   }
 
-  actionClicked(action: Action) {
+  actionClicked(action: ActionSummary) {
     this.router.navigate([`topics/${this.topic.path}/actions/${action.route}`]);
   }
 }
