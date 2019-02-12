@@ -18,13 +18,9 @@
         </div>
       </div>
     </div>
-
     <div class="submit-action">
       <button class="btn btn-success" type="button" (click)="submitAction()">Go</button>
     </div>
-
-    <app-action-result></app-action-result>
+    <app-action-result [result]="result?.output"></app-action-result>
   </div>
-
-
 </div>

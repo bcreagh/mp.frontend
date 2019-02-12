@@ -1,10 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Topic } from 'src/_model/topic';
 import { Action } from 'src/_model/action';
 import { TopicService } from 'src/_services/topic.service';
 import { ActionService } from 'src/_services/action.service';
+import { ActionResult } from 'src/_model/action-result';
+import { ActionInputComponent } from './action-input/action-input.component';
+import { ActionResultComponent } from './action-result/action-result.component';
 
 @Component({
   selector: 'app-try-action',
@@ -18,6 +21,11 @@ export class TryActionComponent implements OnInit {
   readmeContent = '';
   topic: Topic;
   action: Action;
+  input: string = '';
+  result: ActionResult;
+
+
+  @ViewChild(ActionInputComponent) inputComponent: ActionInputComponent;
 
   constructor(
     private route: ActivatedRoute,
@@ -59,4 +67,12 @@ export class TryActionComponent implements OnInit {
 
   }
 
+  submitAction() {
+    const input = this.inputComponent.getInput();
+    this.actionService.submitAction(input, this.topic, this.action).subscribe(
+      (actionResult) => {
+        this.result = actionResult;
+      }
+    );
+  }
 }
