@@ -17,6 +17,9 @@ import { ActionService } from 'src/_services/action.service';
 import { TopicComponent } from './topic/topic.component';
 import { ActionComponent } from './action/action.component';
 import { MpMarkdownComponent } from './mp-markdown/mp-markdown.component';
+import { TryActionComponent } from './action/try-action/try-action.component';
+import { ActionInputComponent } from './action/try-action/action-input/action-input.component';
+import { ActionResultComponent } from './action/try-action/action-result/action-result.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { MpMarkdownComponent } from './mp-markdown/mp-markdown.component';
     NavbarComponent,
     TopicComponent,
     ActionComponent,
-    MpMarkdownComponent
+    MpMarkdownComponent,
+    TryActionComponent,
+    ActionInputComponent,
+    ActionResultComponent
   ],
   imports: [
     BrowserModule,
