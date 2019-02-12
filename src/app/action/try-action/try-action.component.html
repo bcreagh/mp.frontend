@@ -1,5 +1,30 @@
-<p>
-  try-action works!
-</p>
-<app-action-input></app-action-input>
-<app-action-result></app-action-result>
+<div class="try-action">
+  <div class="action-heading">
+    <h1>{{action?.name}}</h1>
+  </div>
+  <div class="instructions">
+    {{action?.instructions}}
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <app-action-input></app-action-input>
+      </div>
+      <div class="col-md-3">
+        <div class="examples">
+          <div *ngFor="let example of action?.examples">
+            {{example.name}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="submit-action">
+      <button class="btn btn-success" type="button" (click)="submitAction()">Go</button>
+    </div>
+
+    <app-action-result></app-action-result>
+  </div>
+
+
+</div>

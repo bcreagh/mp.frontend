@@ -1,0 +1,29 @@
+.action-heading {
+    text-align: center;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    background-color: #a4eb6f;
+}
+
+.action-heading>h1 {
+    font-size: 5em;
+    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.instructions {
+    padding-top: 3em;
+    padding-bottom: 3em;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.submit-action {
+    text-align: center;
+}
+
+.submit-action>.btn {
+    min-width: 4em;
+    font-size: 1em;
+}

@@ -6,6 +6,7 @@ export class Action {
     name: string;
     description: string;
     route: string;
+    instructions: string;
     readme: Readme;
     examples: Example[];
     requestDetails: RequestDetails;
