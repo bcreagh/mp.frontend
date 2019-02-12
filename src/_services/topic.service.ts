@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
 import { Topic } from 'src/_model/topic';
 import { ConfigService } from './config.service';
 import { Readme } from 'src/_model/readme';
-import { ActionSummary } from 'src/_model/action-summary';
+import { Action } from 'src/_model/action';
 
 @Injectable()
 export class TopicService {
@@ -58,6 +58,6 @@ export class TopicService {
 
     getActions(topic: Topic) {
         const url = `${topic.baseUrl}${topic.path}/actions`;
-        return this.http.get<ActionSummary[]>(url);
+        return this.http.get<Action[]>(url);
     }
 }

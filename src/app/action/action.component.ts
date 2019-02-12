@@ -13,6 +13,7 @@ import { Action } from 'src/_model/action';
 })
 export class ActionComponent implements OnInit {
 
+  topicPath = '';
   actionRoute = '';
   readmeContent = '';
   topic: Topic;
@@ -25,13 +26,13 @@ export class ActionComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    const topicPath = this.route.snapshot.paramMap.get('topic');
+    this.topicPath = this.route.snapshot.paramMap.get('topic');
     this.actionRoute = this.route.snapshot.paramMap.get('action-route');
-    this.getTopic(topicPath);
+    this.getTopic();
   }
 
-  getTopic(topicPath: string) {
-    this.topicService.getTopic(topicPath).subscribe(
+  getTopic() {
+    this.topicService.getTopic(this.topicPath).subscribe(
       (topic) => {
         this.topic = topic;
         this.getAction(topic);

@@ -1,12 +1,12 @@
 <div class="action">
   <div class="action-heading">
-    <h1>{{actionRoute}}</h1>
+    <h1>{{action?.name}}</h1>
   </div>
   <div class="try-action">
     <div class="try-text">
-      Want to test out {{actionRoute}}? Click below to give it a try!
+      Want to test out {{action?.name}}? Click below to give it a try!
     </div>
-    <a routerLink="/topics/{{selectedTopic?.path}}" routerLinkActive="active">
+    <a routerLink="/topics/{{topicPath}}/actions/{{actionRoute}}/try-it" routerLinkActive="active">
       <button class="btn btn-success btn-try-it" type="button">Try it</button>
     </a>
   </div>
