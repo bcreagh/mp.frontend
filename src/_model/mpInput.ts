@@ -1,7 +1,7 @@
 export class MpInput {
-    input: string;
+    input: any;
 
-    constructor(input: string) {
+    constructor(input: any) {
         this.input = input;
     }
 }
