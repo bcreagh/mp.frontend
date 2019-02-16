@@ -27,3 +27,17 @@
     min-width: 4em;
     font-size: 1em;
 }
+
+#btn-template {
+    float: right;
+    color: #0086f1;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.textarea-header {
+    font-size: 1.25em;
+    padding-bottom: 5px;
+    padding-left: 2em;
+    padding-right: 2em;
+}

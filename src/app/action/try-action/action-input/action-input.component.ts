@@ -13,9 +13,5 @@ export class ActionInputComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  getInput() {
-    return this.input;
-  }
-
+  
 }
