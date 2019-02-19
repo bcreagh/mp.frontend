@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { inputTypes } from '../../../../_model/request-details/input-types';
+import { MpInput } from 'src/_model/mpInput';
 
 @Component({
   selector: 'app-action-input',
@@ -7,11 +9,54 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ActionInputComponent implements OnInit {
 
+  @Input() mode: string;
+  @Output() inputError = new EventEmitter<string>()
   input: string;
+  displayError = false;
+
 
   constructor() { }
 
   ngOnInit() {
+    this.input = '';
+  }
+
+  getInput() {
+    if (!this.input) {
+      this.emitError('You must enter some input!');
+    }
+    switch(this.mode) {
+      case inputTypes.TEXT:
+        return new MpInput(this.input);
+      case inputTypes.JSON:
+        const inputObj = this.toJson();
+        return new MpInput(inputObj);
+    }
+  }
+
+  toJson() {
+    try {
+      return JSON.parse(this.input);
+    } catch (error) {
+      this.emitError('Your input must be valid JSON syntax. You can click the help icon for sample input.');
+    }
+  }
+
+  emitError(error: string) {
+    this.displayError = true;
+    this.inputError.emit(error);
+    throw new Error(error);
+  }
+
+  onInputChanged() {
+    if (this.displayError) {
+      this.unsetError();
+    }
+  }
+
+  unsetError() {
+    this.displayError = false;
+    this.inputError.emit('');
   }
   
 }

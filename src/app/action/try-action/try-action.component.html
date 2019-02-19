@@ -16,7 +16,8 @@
     </div>
     <div class="row">
       <div class="col-md-9">
-        <app-action-input></app-action-input>
+        <app-action-input (inputError)="onInputError($event)"></app-action-input>
+        <div class="input-error">{{inputError}}</div>
       </div>
       <div class="col-md-3">
         <div class="examples">
@@ -28,6 +29,7 @@
     </div>
     <div class="submit-action">
       <button class="btn btn-success" type="button" (click)="submitAction()">Go</button>
+      <button class="btn btn-success" type="button" (click)="doparse()">parser</button>
     </div>
     <app-action-result [result]="result?.output"></app-action-result>
   </div>

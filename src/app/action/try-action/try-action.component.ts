@@ -23,6 +23,7 @@ export class TryActionComponent implements OnInit {
   action: Action;
   input: string = '';
   result: ActionResult;
+  inputError = '';
 
 
   @ViewChild(ActionInputComponent) inputComponent: ActionInputComponent;
@@ -78,5 +79,15 @@ export class TryActionComponent implements OnInit {
 
   showTemplate() {
     this.inputComponent.input = this.action.requestDetails.inputTemplate;
+  }
+
+  doparse() {
+    this.inputComponent.mode = "JSON";
+    const res = this.inputComponent.getInput();
+    console.log(res);
+  }
+
+  onInputError(error: string) {
+    this.inputError = error;
   }
 }

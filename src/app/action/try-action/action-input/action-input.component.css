@@ -2,3 +2,11 @@ textarea {
     width: 100% !important;
     height: 17em;
 }
+
+.input-error {
+    border: 2px solid red;
+}
+
+.input-error:focus {
+    outline-style: inherit !important;
+}

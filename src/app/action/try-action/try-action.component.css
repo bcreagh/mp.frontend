@@ -41,3 +41,11 @@
     padding-left: 2em;
     padding-right: 2em;
 }
+
+.input-error {
+    text-align: center;
+    color: red;
+    line-height: 2em;
+    font-size: 1.2em;
+    min-height: 2em;
+}
