@@ -16,7 +16,7 @@
     </div>
     <div class="row">
       <div class="col-md-9">
-        <app-action-input (inputError)="onInputError($event)"></app-action-input>
+        <app-action-input (inputError)="onInputError($event)" [mode]="action?.requestDetails?.inputType"></app-action-input>
         <div class="input-error">{{inputError}}</div>
       </div>
       <div class="col-md-3">

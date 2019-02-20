@@ -78,11 +78,10 @@ export class TryActionComponent implements OnInit {
   }
 
   showTemplate() {
-    this.inputComponent.input = this.action.requestDetails.inputTemplate;
+    this.inputComponent.setInput(this.action.requestDetails.inputTemplate);
   }
 
   doparse() {
-    this.inputComponent.mode = "JSON";
     const res = this.inputComponent.getInput();
     console.log(res);
   }

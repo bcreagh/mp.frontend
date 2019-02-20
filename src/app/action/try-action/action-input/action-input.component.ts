@@ -27,11 +27,23 @@ export class ActionInputComponent implements OnInit {
     }
     switch(this.mode) {
       case inputTypes.TEXT:
-        return new MpInput(this.input);
+        return this.input;
       case inputTypes.JSON:
-        const inputObj = this.toJson();
-        return new MpInput(inputObj);
+        return this.toJson();
     }
+  }
+
+  setInput(input) {
+    switch(this.mode) {
+      case inputTypes.TEXT:
+        this.input = input;
+        break;
+      case inputTypes.JSON:
+        let inputText = JSON.stringify(input, null, 4);
+        this.input = inputText;
+        break;
+    }
+    this.unsetError();
   }
 
   toJson() {
