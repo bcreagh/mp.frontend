@@ -69,7 +69,7 @@ export class TryActionComponent implements OnInit {
   }
 
   submitAction() {
-    const input = this.inputComponent.input;
+    const input = this.inputComponent.getInput();
     this.actionService.submitAction(input, this.topic, this.action).subscribe(
       (actionResult) => {
         this.result = actionResult;

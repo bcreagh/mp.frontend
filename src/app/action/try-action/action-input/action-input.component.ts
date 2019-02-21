@@ -60,15 +60,47 @@ export class ActionInputComponent implements OnInit {
     throw new Error(error);
   }
 
-  onInputChanged() {
-    if (this.displayError) {
-      this.unsetError();
+  onKeyDown(keyEvent: KeyboardEvent) {
+    this.unsetError();
+    const TAB_KEY = 9;
+    const SPACE = ' ';
+    if (keyEvent.keyCode === TAB_KEY) {
+      if (!keyEvent.shiftKey) {
+        for (let i = 0; i < 4; i++) {
+          this.insertChar(keyEvent.srcElement, SPACE);
+        }
+      }
+      keyEvent.preventDefault();
     }
   }
 
   unsetError() {
-    this.displayError = false;
-    this.inputError.emit('');
+    if (this.displayError) {
+      this.displayError = false;
+      this.inputError.emit('');
+    }
+  }
+
+  // inserts a character into the textarea at the cursor position
+  insertChar(textarea, char) {
+    const text = char;
+    if (textarea.selection) {
+      // IE
+      textarea.focus();
+      var sel = textarea.selection.createRange();
+      sel.text = text;
+    } else if (textarea.selectionStart || textarea.selectionStart === 0) {
+      // Others
+      var startPos = textarea.selectionStart;
+      var endPos = textarea.selectionEnd;
+      textarea.value = textarea.value.substring(0, startPos) +
+        text +
+        textarea.value.substring(endPos, textarea.value.length);
+        textarea.selectionStart = startPos + text.length;
+        textarea.selectionEnd = startPos + text.length;
+    } else {
+      textarea.value += text;
+    }
   }
   
 }

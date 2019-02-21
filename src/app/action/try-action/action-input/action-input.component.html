@@ -1,2 +1,2 @@
-<textarea [ngClass]="{ 'input-error': displayError }" [(ngModel)]="input" (keyup)="onInputChanged()" spellcheck="false">
+<textarea [ngClass]="{ 'input-error': displayError }" [(ngModel)]="input" (keydown)="onKeyDown($event)" spellcheck="false">
 </textarea>
