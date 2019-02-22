@@ -60,25 +60,29 @@ export class ActionInputComponent implements OnInit {
     throw new Error(error);
   }
 
-  onKeyDown(keyEvent: KeyboardEvent) {
-    this.unsetError();
-    const TAB_KEY = 9;
-    const SPACE = ' ';
-    if (keyEvent.keyCode === TAB_KEY) {
-      if (!keyEvent.shiftKey) {
-        for (let i = 0; i < 4; i++) {
-          this.insertChar(keyEvent.srcElement, SPACE);
-        }
-      }
-      keyEvent.preventDefault();
-    }
-  }
-
   unsetError() {
     if (this.displayError) {
       this.displayError = false;
       this.inputError.emit('');
     }
+  }
+
+  onKeyDown(keyEvent: KeyboardEvent) {
+    this.unsetError();
+    const TAB_KEY = 9;
+    if (keyEvent.keyCode === TAB_KEY) {
+      this.handleTabKeyPress(keyEvent);
+    }
+  }
+
+  handleTabKeyPress(keyEvent: KeyboardEvent) {
+    const SPACE = ' ';
+    if (!keyEvent.shiftKey) {
+      for (let i = 0; i < 4; i++) {
+        this.insertChar(keyEvent.target, SPACE);
+      }
+    }
+    keyEvent.preventDefault();
   }
 
   // inserts a character into the textarea at the cursor position
