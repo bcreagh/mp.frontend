@@ -35,11 +35,21 @@
       <div class="col-md-3">
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-9">
-        <app-action-result [result]="result?.output"></app-action-result>
+    <div *ngIf="showResult">
+
+      <div class="row">
+        <div class="col-md-9 textarea-header">
+          Result
+        </div>
+        <div class="col-md-3">
+        </div>
       </div>
-      <div class="col-md-3">
+      <div class="row action-result">
+        <div class="col-md-9">
+          <app-action-result [result]="result?.output"></app-action-result>
+        </div>
+        <div class="col-md-3">
+        </div>
       </div>
     </div>
   </div>

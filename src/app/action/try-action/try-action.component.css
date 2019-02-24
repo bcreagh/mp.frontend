@@ -49,3 +49,7 @@
     font-size: 1.2em;
     min-height: 2em;
 }
+
+.action-result {
+    padding-bottom: 1em;
+}

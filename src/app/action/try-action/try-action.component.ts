@@ -24,6 +24,7 @@ export class TryActionComponent implements OnInit {
   input: string = '';
   result: ActionResult;
   inputError = '';
+  showResult = false;
 
 
   @ViewChild(ActionInputComponent) inputComponent: ActionInputComponent;
@@ -73,6 +74,7 @@ export class TryActionComponent implements OnInit {
     this.actionService.submitAction(input, this.topic, this.action).subscribe(
       (actionResult) => {
         this.result = actionResult;
+        this.showResult = true;
       }
     );
   }
