@@ -8,6 +8,7 @@ import { ActionService } from 'src/_services/action.service';
 import { ActionResult } from 'src/_model/action-result';
 import { ActionInputComponent } from './action-input/action-input.component';
 import { ActionResultComponent } from './action-result/action-result.component';
+import { Example } from 'src/_model/example';
 
 @Component({
   selector: 'app-try-action',
@@ -25,6 +26,7 @@ export class TryActionComponent implements OnInit {
   result: ActionResult;
   inputError = '';
   showResult = false;
+  selectedExample: Example;
 
 
   @ViewChild(ActionInputComponent) inputComponent: ActionInputComponent;
@@ -90,5 +92,9 @@ export class TryActionComponent implements OnInit {
 
   onInputError(error: string) {
     this.inputError = error;
+  }
+
+  showExample() {
+    window.alert(this.selectedExample.name);
   }
 }
