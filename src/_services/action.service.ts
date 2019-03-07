@@ -1,10 +1,8 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 
-import { ConfigService } from './config.service';
 import { Topic } from 'src/_model/topic';
 import { Action } from 'src/_model/action';
-import { TopicService } from './topic.service';
 import { ActionResult } from 'src/_model/action-result';
 import { MpInput } from 'src/_model/mpInput';
 import { RequestDetails } from 'src/_model/request-details/request-details';
@@ -31,11 +29,9 @@ export class ActionService {
         }
         // example has its own route
         return this.submitAction(example.input, topic, action, example.route);
-
     }
 
     submitAction(input: any, topic: Topic, action: Action, exampleRoute='') {
-
         switch (action.requestDetails.httpMethod) {
             case httpMethods.POST:
                 return this.submitActionPost(input, topic, action, exampleRoute);
