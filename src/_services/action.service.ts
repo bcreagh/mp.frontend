@@ -10,6 +10,7 @@ import { MpInput } from 'src/_model/mpInput';
 import { RequestDetails } from 'src/_model/request-details/request-details';
 import { inputTypes } from 'src/_model/request-details/input-types';
 import { httpMethods } from 'src/_model/request-details/http-methods';
+import { Example } from 'src/_model/example';
 
 @Injectable()
 export class ActionService {
@@ -24,18 +25,27 @@ export class ActionService {
         return this.http.get<Action>(url);
     }
 
-    submitAction(input: any, topic: Topic, action: Action) {
+    submitExample(example: Example, topic: Topic, action: Action) {
+        if (!example.hasOwnRoute) {
+            return this.submitAction(example.input, topic, action);
+        }
+        // example has its own route
+        return this.submitAction(example.input, topic, action, example.route);
+
+    }
+
+    submitAction(input: any, topic: Topic, action: Action, exampleRoute='') {
 
         switch (action.requestDetails.httpMethod) {
             case httpMethods.POST:
-                return this.submitActionPost(input, topic, action);
+                return this.submitActionPost(input, topic, action, exampleRoute);
             default:
                 throw new Error(`The http method ${action.requestDetails.httpMethod} is not supported`);
         }
     }
 
-    private submitActionPost(input: any, topic: Topic, action: Action) {
-        const url = `${topic.baseUrl}${topic.path}/${action.route}`;
+    private submitActionPost(input: any, topic: Topic, action: Action, exampleRoute='') {
+        const url = `${topic.baseUrl}${topic.path}/${action.route}/${exampleRoute}`;
         const body = this.getRequestBody(input, action.requestDetails);
         return this.http.post<ActionResult>(url, body, {
             headers: {

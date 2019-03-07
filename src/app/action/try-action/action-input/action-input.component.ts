@@ -34,15 +34,11 @@ export class ActionInputComponent implements OnInit {
   }
 
   setInput(input) {
-    switch(this.mode) {
-      case inputTypes.TEXT:
-        this.input = input;
-        break;
-      case inputTypes.JSON:
-        let inputText = JSON.stringify(input, null, 4);
-        this.input = inputText;
-        break;
+    let inputText = input;
+    if (this.mode === inputTypes.JSON && typeof(input) !== "string") {
+      inputText = JSON.stringify(input, null, 4);
     }
+    this.input = inputText;
     this.unsetError();
   }
 

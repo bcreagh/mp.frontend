@@ -94,7 +94,15 @@ export class TryActionComponent implements OnInit {
     this.inputError = error;
   }
 
-  showExample() {
-    window.alert(this.selectedExample.name);
+  submitExample() {
+    if (this.selectedExample.input) {
+      this.inputComponent.setInput(this.selectedExample.input);
+    }
+    this.actionService.submitExample(this.selectedExample, this.topic, this.action).subscribe(
+      (actionResult) => {
+        this.result = actionResult;
+        this.showResult = true;
+      }
+    );
   }
 }
