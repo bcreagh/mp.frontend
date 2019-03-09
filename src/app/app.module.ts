@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTooltipModule } from '@angular/material';
 
 import { MarkdownModule } from 'ngx-markdown';
 
@@ -38,6 +40,8 @@ import { ActionResultComponent } from './action/try-action/action-result/action-
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    BrowserAnimationsModule,
+    MatTooltipModule,
     MarkdownModule.forRoot()
   ],
   providers: [
