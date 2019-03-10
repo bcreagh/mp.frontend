@@ -16,6 +16,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ConfigService } from '../_services/config.service';
 import { TopicService } from 'src/_services/topic.service';
 import { ActionService } from 'src/_services/action.service';
+import { DocsService } from 'src/_services/docs.service';
 import { TopicComponent } from './topic/topic.component';
 import { ActionComponent } from './action/action.component';
 import { MpMarkdownComponent } from './mp-markdown/mp-markdown.component';
@@ -47,7 +48,8 @@ import { ActionResultComponent } from './action/try-action/action-result/action-
   providers: [
     ConfigService,
     TopicService,
-    ActionService
+    ActionService,
+    DocsService
   ],
   bootstrap: [AppComponent]
 })
