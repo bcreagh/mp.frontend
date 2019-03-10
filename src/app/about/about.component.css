@@ -1,0 +1,33 @@
+.about-heading {
+    text-align: center;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    background-color: #a4eb6f;
+}
+
+.about-heading>h1 {
+    font-size: 5em;
+    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.about-readme {
+    margin-top: 2em;
+    margin-right: auto;
+    margin-left: auto;
+    width: 75%;
+}
+
+.panel-body {
+    padding: 0em 2em 1em 2em;
+}
+
+@media (max-width:800px){
+
+    .about-readme {
+        margin-left: 2em;
+        margin-right: 2em;
+        width: auto;
+    }
+}

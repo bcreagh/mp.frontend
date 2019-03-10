@@ -23,6 +23,7 @@ import { MpMarkdownComponent } from './mp-markdown/mp-markdown.component';
 import { TryActionComponent } from './action/try-action/try-action.component';
 import { ActionInputComponent } from './action/try-action/action-input/action-input.component';
 import { ActionResultComponent } from './action/try-action/action-result/action-result.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ActionResultComponent } from './action/try-action/action-result/action-
     MpMarkdownComponent,
     TryActionComponent,
     ActionInputComponent,
-    ActionResultComponent
+    ActionResultComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

@@ -10,7 +10,9 @@ export class DocsService {
     }
 
     getAboutDoc() {
-        return this.http.get(`${this.docsBaseUrl}overview.md`);
+        return this.http.get(`${this.docsBaseUrl}overview.md`, {
+            responseType: "text"
+        });
     }
 
 
