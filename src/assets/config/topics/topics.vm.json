@@ -1,0 +1,7 @@
+[
+    {
+        "name": "Proof of Concept",
+        "baseUrl": "http://192.168.56.102:3000/",
+        "path": "poc"
+    }
+]

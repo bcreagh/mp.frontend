@@ -51,6 +51,30 @@
                   "maximumError": "5mb"
                 }
               ]
+            },
+            "vm": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.local.ts",
+                  "with": "src/environments/environment.vm.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
             }
           }
         },
@@ -62,6 +86,9 @@
           "configurations": {
             "production": {
               "browserTarget": "mp-frontend:build:production"
+            },
+            "vm": {
+              "browserTarget": "mp-frontend:build:vm"
             }
           }
         },
@@ -116,6 +143,9 @@
           "configurations": {
             "production": {
               "devServerTarget": "mp-frontend:serve:production"
+            },
+            "vm": {
+              "devServerTarget": "mp-frontend:serve:vm"
             }
           }
         },
