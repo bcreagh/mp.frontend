@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 npm install
-ng build
+ng build -c vm
