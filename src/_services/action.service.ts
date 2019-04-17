@@ -41,7 +41,12 @@ export class ActionService {
     }
 
     private submitActionPost(input: any, topic: Topic, action: Action, exampleRoute='') {
-        const url = `${topic.baseUrl}${topic.path}/${action.route}/${exampleRoute}`;
+        let url = '';
+        if (exampleRoute) {
+            url = `${topic.baseUrl}${topic.path}/${action.route}/${exampleRoute}`;
+        } else {
+            url = `${topic.baseUrl}${topic.path}/${action.route}`;
+        }
         const body = this.getRequestBody(input, action.requestDetails);
         return this.http.post<ActionResult>(url, body, {
             headers: {
