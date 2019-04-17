@@ -5,4 +5,4 @@ RUN npm install -g @angular/cli \
 
 WORKDIR /mp.frontend
 
-ENTRYPOINT ["./scripts/builder/entrypoint.sh"]
+ENTRYPOINT ["./infrastructure/builder/entrypoint.sh"]

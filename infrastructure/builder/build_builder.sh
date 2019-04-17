@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-cd ./scripts/builder
+cd ./infrastructure/builder
 docker build -t bcreagh/mp-frontend-builder .
