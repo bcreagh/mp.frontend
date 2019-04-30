@@ -27,9 +27,11 @@ export class TryActionComponent implements OnInit {
   inputError = '';
   showResult = false;
   selectedExample: Example;
+  displayExamples = false;
 
 
   @ViewChild(ActionInputComponent) inputComponent: ActionInputComponent;
+  @ViewChild(ActionResultComponent) resultComponent: ActionResultComponent;
 
   constructor(
     private route: ActivatedRoute,
@@ -68,7 +70,9 @@ export class TryActionComponent implements OnInit {
   }
 
   onActionRetrieved() {
-
+    if (this.action.examples.length > 0) {
+      this.displayExamples = true;
+    }
   }
 
   submitAction() {
@@ -76,9 +80,14 @@ export class TryActionComponent implements OnInit {
     this.actionService.submitAction(input, this.topic, this.action).subscribe(
       (actionResult) => {
         this.result = actionResult;
+        this.displayResult(this.result.output);
         this.showResult = true;
       }
     );
+  }
+
+  displayResult(result) {
+    this.resultComponent.setResult(result);
   }
 
   showTemplate() {
@@ -101,6 +110,7 @@ export class TryActionComponent implements OnInit {
     this.actionService.submitExample(this.selectedExample, this.topic, this.action).subscribe(
       (actionResult) => {
         this.result = actionResult;
+        this.displayResult(this.result.output);
         this.showResult = true;
       }
     );

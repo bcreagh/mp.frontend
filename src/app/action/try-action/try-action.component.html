@@ -20,7 +20,7 @@
         </app-action-input>
         <div class="input-error">{{inputError}}</div>
       </div>
-      <div class="col-md-3 examples">
+      <div class="col-md-3 examples" [hidden]="!displayExamples">
         Not sure what to enter? Try one of the examples below!
         <select class="form-control" [(ngModel)]="selectedExample" (change)="submitExample()">
           <option *ngFor="let example of action?.examples" [ngValue]="example">
@@ -36,7 +36,7 @@
       <div class="col-md-3">
       </div>
     </div>
-    <div *ngIf="showResult">
+    <div [hidden]="!showResult">
 
       <div class="row">
         <div class="col-md-9 textarea-header">
@@ -47,7 +47,7 @@
       </div>
       <div class="row action-result">
         <div class="col-md-9">
-          <app-action-result [result]="result?.output"></app-action-result>
+          <app-action-result></app-action-result>
         </div>
         <div class="col-md-3">
         </div>

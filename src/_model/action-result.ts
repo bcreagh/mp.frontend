@@ -2,7 +2,7 @@ import { Log } from './log';
 
 export class ActionResult {
     input: string;
-    output: string;
+    output: any;
     logs: Log[];
     performance: number;
 }

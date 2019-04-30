@@ -7,11 +7,23 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ActionResultComponent implements OnInit {
 
-  @Input() result: string;
+  result: string;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  setResult(result) {
+    let resultText;
+    if (typeof(result) === "string") {
+      console.log("It is a string");
+      resultText = result;
+    } else {
+      resultText = JSON.stringify(result, null, 4);
+      console.log("It is a string");
+    }
+    this.result = resultText;
   }
 
 }

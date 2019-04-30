@@ -60,6 +60,7 @@ export class ActionService {
             case inputTypes.NONE:
                 return new MpInput('');
             case inputTypes.JSON:
+                return input;
             case inputTypes.TEXT:
                 return new MpInput(input);
             default:
