@@ -82,6 +82,15 @@ export class TryActionComponent implements OnInit {
         this.result = actionResult;
         this.displayResult(this.result.output);
         this.showResult = true;
+      },
+      (error) => {
+        console.log(error);
+        if (error.error && error.error.userFriendlyError) {
+          console.log("displaying error");
+          this.displayResult(error.error.userFriendlyError);
+          this.showResult = true;
+        }
+        console.log("not displaying error");
       }
     );
   }
