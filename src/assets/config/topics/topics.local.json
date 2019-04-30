@@ -3,5 +3,15 @@
         "name": "Proof of Concept",
         "baseUrl": "http://localhost:3000/",
         "path": "poc"
+    },
+    {
+        "name": "Flask Base",
+        "baseUrl": "http://localhost:5000/",
+        "path": "flask-base"
+    },
+    {
+        "name": "Java Algorithms",
+        "baseUrl": "http://localhost:4568/",
+        "path": "spark-algos"
     }
 ]
